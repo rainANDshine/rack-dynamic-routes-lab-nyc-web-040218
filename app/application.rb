@@ -8,7 +8,7 @@ class Application
     if req.path.match(/items/)
       item_title = req.path.split("/items/").last
       item = @@items.find{|i| i.name == item_title}
-      if item == ""
+      if item == nil
         resp.status = 400
         resp.write "Item not found"
       else
